@@ -21,10 +21,42 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
+
+/**
+ * I: Two integers
+ * O: Returns an Array containing all integars between the two parameters, inclusively
+ * C: Loops, storage variable, push() method 
+ * E: if first argument is greater than the second, return the range in reverse order
+ */
+
+// create a function range that takes in two integars as it's parameters and returns an array containing the range between 
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+    // create storage array to contain the range and assign it the value of an empty array
+    var array = [];
+    // declare variable count and assign it the value of the start integar
+    var count = start 
+    // Create if statement chain where the first condition is met if the start variable is less than the end variable
+    if (start < end) {
+        // if start < end, initiate while loop that iterates forward through the range of integars between the parameters (inclusive)
+        while (count <= end) {
+            // push each integer to the storage array
+            array.push(count);
+            // increment the count +1 upon each iteration
+            count++
+        }
+    // continue chain with reverse condition, where the start integar is greater than end
+    } if (start > end) {
+        // if start > end, initiate while loop that iterates backward through the range of integars between the parameters (inclusive)
+        while (count >= end) {
+            //push each integer into the storage array
+            array.push(count);
+            // decrement the count -1 upon each iteration
+            count --;
+        } 
+         
+    }
+    return array
     
     
     // YOUR CODE GOES ABOVE HERE //
