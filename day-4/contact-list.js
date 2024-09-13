@@ -34,22 +34,59 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
+
+/**
+ * I: code block
+ * O: new object
+ * C: new code is inside the function 
+ * E:
+ */ 
+
+// create function makeContact that takes in 3 parameters, assigns them to object properties, and returns an object 
 function makeContact(id, nameFirst, nameLast) {
-    
+    // create new object literal to contain our output
+    var object = {};
+    //create new key/value pairs for the contact 
+    object.id = id;
+    object.nameFirst = nameFirst;
+    object.nameLast = nameLast;
+    // return object
+    return object;
 } 
 
 
 
 function makeContactList() {
-    /*
-     * You need something here to hold contacts. See length api for a hint:
-     */
+    // /*
+    //  * You need something here to hold contacts. See length api for a hint:
+    //  */
+    var object = {};
     var contacts = [];
     
     return {
         // we implemented the length api for you //
-       
-    }
+       length: function() {
+        return contacts.length
+       },
+       addContact: function(contact) {
+        contacts.push(contact)
+       },
+       findContact: function(fullName) {    
+        for (var contact in object) {
+            for (var fullName in contact) {
+                if (typeof fullName === 'string') {
+                    return contact
+                }
+            }
+        }
+            }
+        }
+    //    },
+    //    removeContact: function(contact) {
+    //     contacts.splice(contact);
+    //    },
+
+    // }
 }
 
 makeContactList(); // => { length: function(){}, addContact: function(){}, findContact: function(){}  }
