@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { conforms } = require("lodash");
+
 /**
  * 4: Contact List // Contacts
  * 
@@ -69,24 +71,42 @@ function makeContactList() {
         return contacts.length
        },
        addContact: function(contact) {
-        contacts.push(contact)
-       },
+        contacts.push(contact);
+       },   
        findContact: function(fullName) {    
-        for (var contact in object) {
-            for (var fullName in contact) {
-                if (typeof fullName === 'string') {
+            var nameArray = fullName.split(' ');
+            var first = nameArray[0];
+            var last = nameArray[1];
+            for (var i = 0; i < contacts.length; i++) {
+                var contact = contacts[i];
+                if (contact.nameFirst === first && contact.nameLast === last) {
                     return contact
                 }
+                
             }
-        }
+        },
+        removeContact: function(contact) {
+            for (var i = 0; i < contacts.length; i++) {
+                if (contacts[i] === contact) {
+                   return contacts.splice(contacts[i], 1);
+                }
             }
+        },
+        printAllContactNames: function() {
+            // create output variable
+            // var contacts
+            var names = []
+            var namesString
+            for (var i = 0; i < contacts.length; i++) {
+                var nameFirst = contacts[i]['nameFirst'];
+                var nameLast = contacts[i]['nameLast']; 
+                var fullName = nameFirst.concat(' ', nameLast)
+                names.push(fullName);
+            }
+            namesString = names.join('\n')
+            return namesString
         }
-    //    },
-    //    removeContact: function(contact) {
-    //     contacts.splice(contact);
-    //    },
-
-    // }
+    }
 }
 
 makeContactList(); // => { length: function(){}, addContact: function(){}, findContact: function(){}  }
