@@ -62,7 +62,6 @@ function makeContactList() {
     // /*
     //  * You need something here to hold contacts. See length api for a hint:
     //  */
-    var object = {};
     var contacts = [];
     
     return {
@@ -75,8 +74,10 @@ function makeContactList() {
        },   
        findContact: function(fullName) {    
             var nameArray = fullName.split(' ');
-            var first = nameArray[0];
-            var last = nameArray[1];
+            // var first = nameArray[0];
+            // var last = nameArray[1];
+                // destructured: Array
+                var [first, last] = nameArray;
             for (var i = 0; i < contacts.length; i++) {
                 var contact = contacts[i];
                 if (contact.nameFirst === first && contact.nameLast === last) {
